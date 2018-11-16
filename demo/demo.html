@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.9/lib/theme-chalk/index.css">
+	<script src='https://unpkg.com/vue@2.2.6'></script>
+	<script src='https://unpkg.com/jquery@3.3.1/dist/jquery.js'></script>
+	<script src='https://unpkg.com/lodash@4.17.11/lodash.js'></script>
+	<script src="https://unpkg.com/element-ui@2.4.9/lib/index.js"></script>
+	<script src='../dist/table-columns-custom.min.js'></script>
+	<style>
+		.table {
+			width: 95%;
+			margin: 10px auto;
+			overflow-x: auto; 
+			font-size: 12px;
+		}
+		table {
+		    width: 100%;
+		    max-width: 100%;
+		    background-color: #fff;
+		    box-sizing: content-box;
+		    border-collapse: collapse;
+		}
+
+		th, td {
+		    height: 50px;
+		    text-overflow: ellipsis;
+		    vertical-align: middle;
+		    border-left: 1px solid #f2f2f2;
+		    border-right: 1px solid #f2f2f2;
+		    border-bottom: 1px solid #e7e7e7;
+		    padding: 0 20px;
+		}
+
+		th {
+		    text-align: center;
+		    color: #333;
+		    white-space: nowrap;
+		    border-top: 1px solid #e7e7e7;
+		}
+
+		td {
+		    word-break: break-all;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<table-columns-custom 
+            ref="tableCustomModal"
+            related-table-class="js-list"
+            :default-checked="[0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12]"
+            cache-name="XX_XX_LIST_FIELDS">
+        </table-columns-custom>
+
+		<el-button type="primary" size="small" @click="onCustomTable"><i class="el-icon-setting"></i></el-button>
+		<div class="table">
+			<table class="js-list">
+                <thead>
+                    <tr>
+                        <th alwaysShow>合同ID</th> 
+                        <th>合同编号</th>   
+                        <th>合同名称</th>  
+                        <th>合同创建时间</th>
+                        <th>合同状态</th>
+                        <th>合同开始时间</th>
+                        <th>合同结束时间</th>
+                        <th>合同总金额</th>
+                        <th>撤销合同日期</th>
+                        <th>代理商公司</th>
+                        <th>客户公司名称</th>
+                        <th>行业销售</th>
+                        <th>渠道销售</th>
+                        <th>销售支持</th>
+                        <th>合同主体</th>
+                        <th>合同类型</th>
+                        <th>该合同是否纳框</th>
+                        <th>框架合同号</th>
+                        <th>付款方式</th>
+                        <th>合同操作类型</th>
+                        <th>实际付款金额</th>
+                        <th>实际结算金额</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in list">
+                        <td>{{item.id}}</td>
+                        <td>{{item.contractNo}}</td>
+                        <td>{{item.contractName}}</td> 
+                        <td>{{item.createTimeStr}}</td>
+                        <td>{{item.contractStateStr}}</td>
+                        <td>{{item.startTimeStr}}</td>
+                        <td>{{item.endTimeStr}}</td>
+                        <td>{{item.amountStr}}</td>
+                        <td>{{item.obsoleteTimeStr}}</td>
+                        <td>{{item.agentCompanyName}}</td>
+                        <td>{{item.customerName}}</td>
+                        <td>{{item.industrySalesName}}</td>
+                        <td>{{item.channelSalesName}}</td>
+                        <td>{{item.salesSupportName}}</td>
+                        <td>{{item.innerCompanyName}}</td>
+                        <td>{{item.typeStr}}</td>
+                        <td>{{item.frmIncludeStr}}</td>
+                        <td>{{item.frmInclude == 1 ? '' : item.frmContractNo}}</td>
+                        <td>{{item.paymentMethodStr}}</td>
+                        <td>{{item.changeTypeStr && item.changeTypeStr + '审核中'}}</td>
+                        <td>{{item.paymentAmountStr}}</td>
+                        <td>{{item.settlementAmountStr}}</td>
+                        <td class="keep-all">{{item.remark}}</td>
+                        <td class="keep-all">
+                            <a href="javascript:;" @click="onClick">同意</a>
+                        </td>
+                    </tr>
+                    <tr v-if="!list || !list.length"><td colspan="30">无数据</td></tr>
+                </tbody>
+            </table>
+		</div>
+	</div>
+<script>
+	new Vue({
+		el: '#app',
+		data () {
+			return {
+				list: [{"id":1,"contractUid":2034,"contractNo":"preonline-test-1","contractName":"预发测试合同","type":0,"typeStr":"销售合同","contractState":2,"contractStateStr":"生效","customerId":229,"customerName":"xxx","agentId":12763843,"agentCompanyName":"北京xxx有限公司","operatingUnit":"U83","innerCompanyName":"广州聚禾信息科技有限公司","amountStr":"10000.00","beforeAmountStr":"10000.00","paymentAmountStr":"0.00","settlementAmountStr":"0.00","paymentMethod":0,"paymentMethodStr":"预付","startTime":null,"startTimeStr":"2018-09-29","beforeStartTimeStr":"2018-09-29","endTime":null,"endTimeStr":"2018-10-05","beforeEndTimeStr":"2018-10-05","createTime":null,"createTimeStr":"2018-09-29","obsoleteTime":null,"obsoleteTimeStr":"-","frmInclude":0,"frmIncludeStr":"纳框 ","frmContractNo":"GZJY-PF-20180504-26865","remark":"预发测试","channelSalesId":14349336,"channelSalesName":"xxx销售","industrySalesId":207348103,"industrySalesName":"汇川行业销售A","salesSupportId":13669001,"salesSupportName":"汇川CRM管理员","changeTypeStr":null,"systemUserList":[{"userType":0,"userId":13669001,"userName":"xxx"},{"userType":1,"userId":207348103,"userName":"汇川行业销售A"},{"userType":2,"userId":14349336,"userName":"ssss"}],"outOrderIdList":[{"outOrderId":"3000252","relationSource":0}],"fileList":[{"id":1,"fileName":"s.txt","filePath":"s.txt"}],"outOrderVoList":null}]
+			}
+		},
+
+		methods: {
+			onCustomTable () {
+				this.$refs.tableCustomModal.showModal();
+			},
+
+			onClick () {
+				alert('同意！');
+			}
+		}
+	});
+</script>
+</body>
+</html>
