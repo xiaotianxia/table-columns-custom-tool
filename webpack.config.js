@@ -13,8 +13,18 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		filename: 'table-columns-custom.min.js'
+		publicPath: '/dist/',
+		filename: 'table-columns-custom.min.js',
+		library: 'TableColumnsCustom',
+	    libraryTarget: 'umd',
+	    umdNamedDefine: true
 	},
+
+	resolve: {
+    	alias: {
+      		vue$: 'vue/dist/vue.esm.js'
+    	}
+  	},
 
 	module: {
 		rules: [

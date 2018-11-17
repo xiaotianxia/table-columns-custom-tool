@@ -125,11 +125,18 @@
 		el: '#app',
 		data () {
 			return {
-				list: [{"id":1,"contractUid":2034,"contractNo":"preonline-test-1","contractName":"预发测试合同","type":0,"typeStr":"销售合同","contractState":2,"contractStateStr":"生效","customerId":229,"customerName":"xxx","agentId":12763843,"agentCompanyName":"北京xxx有限公司","operatingUnit":"U83","innerCompanyName":"广州聚禾信息科技有限公司","amountStr":"10000.00","beforeAmountStr":"10000.00","paymentAmountStr":"0.00","settlementAmountStr":"0.00","paymentMethod":0,"paymentMethodStr":"预付","startTime":null,"startTimeStr":"2018-09-29","beforeStartTimeStr":"2018-09-29","endTime":null,"endTimeStr":"2018-10-05","beforeEndTimeStr":"2018-10-05","createTime":null,"createTimeStr":"2018-09-29","obsoleteTime":null,"obsoleteTimeStr":"-","frmInclude":0,"frmIncludeStr":"纳框 ","frmContractNo":"GZJY-PF-20180504-26865","remark":"预发测试","channelSalesId":14349336,"channelSalesName":"xxx销售","industrySalesId":207348103,"industrySalesName":"汇川行业销售A","salesSupportId":13669001,"salesSupportName":"汇川CRM管理员","changeTypeStr":null,"systemUserList":[{"userType":0,"userId":13669001,"userName":"xxx"},{"userType":1,"userId":207348103,"userName":"汇川行业销售A"},{"userType":2,"userId":14349336,"userName":"ssss"}],"outOrderIdList":[{"outOrderId":"3000252","relationSource":0}],"fileList":[{"id":1,"fileName":"s.txt","filePath":"s.txt"}],"outOrderVoList":null}]
+				list: []
 			}
 		},
 
 		methods: {
+            getList () {
+                this.list = [{"id":1,"contractUid":2034,"contractNo":"preonline-test-1","contractName":"预发测试合同","type":0,"typeStr":"销售合同","contractState":2,"contractStateStr":"生效","customerId":229,"customerName":"xxx","agentId":12763843,"agentCompanyName":"北京xxx有限公司","operatingUnit":"U83","innerCompanyName":"广州聚禾信息科技有限公司","amountStr":"10000.00","beforeAmountStr":"10000.00","paymentAmountStr":"0.00","settlementAmountStr":"0.00","paymentMethod":0,"paymentMethodStr":"预付","startTime":null,"startTimeStr":"2018-09-29","beforeStartTimeStr":"2018-09-29","endTime":null,"endTimeStr":"2018-10-05","beforeEndTimeStr":"2018-10-05","createTime":null,"createTimeStr":"2018-09-29","obsoleteTime":null,"obsoleteTimeStr":"-","frmInclude":0,"frmIncludeStr":"纳框 ","frmContractNo":"GZJY-PF-20180504-26865","remark":"预发测试","channelSalesId":14349336,"channelSalesName":"xxx销售","industrySalesId":207348103,"industrySalesName":"汇川行业销售A","salesSupportId":13669001,"salesSupportName":"汇川CRM管理员","changeTypeStr":null,"systemUserList":[{"userType":0,"userId":13669001,"userName":"xxx"},{"userType":1,"userId":207348103,"userName":"汇川行业销售A"},{"userType":2,"userId":14349336,"userName":"ssss"}],"outOrderIdList":[{"outOrderId":"3000252","relationSource":0}],"fileList":[{"id":1,"fileName":"s.txt","filePath":"s.txt"}],"outOrderVoList":null}];
+                this.$nextTick(() => {
+                    this.$refs.tableCustomModal.init();
+                });
+            },
+
 			onCustomTable () {
 				this.$refs.tableCustomModal.showModal();
 			},
@@ -137,7 +144,11 @@
 			onClick () {
 				alert('同意！');
 			}
-		}
+		},
+
+        mounted () {
+            this.getList();
+        }
 	});
 </script>
 </body>
