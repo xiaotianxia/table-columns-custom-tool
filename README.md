@@ -1,6 +1,6 @@
 
 ## 说明：
-长列表的自定义列弹窗
+一个长列表的自定义列工具。适用于vue和element-ui搭建的系统。
 
 ### th、td属性：
 - **alwaysShow** 列一直显示，自定义列弹窗里不会出现
@@ -15,7 +15,7 @@
 ## 使用
 
 ```bash
-
+npm i table-columns-custom-tool
 ```
 
 

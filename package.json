@@ -1,6 +1,6 @@
 {
   "name": "table-columns-custom-tool",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "a modal tool of cutstoming table columns",
   "main": "./dist/table-columns-custom.min.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "vue",
     "table-columns",
     "table-columns-custom",
-    "modal"
+    "element-ui"
   ],
   "author": "Denzel",
   "license": "ISC",
