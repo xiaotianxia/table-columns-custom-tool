@@ -14,11 +14,38 @@
 
 ## 使用
 
-```html
-<el-button type="primary" size="small" @click="onCustomTable"><i class="el-icon-setting"></i></el-button>
+```bash
+
 ```
 
-```js
+
+```html
+<el-button type="primary" size="small" @click="onCustomTable"><i class="el-icon-setting"></i></el-button>
+
+...
+<table>
+...
+</table>
+
+...
+
+<table-columns-custom 
+    ref="tableCustomModal"
+    related-table-class="js-list"
+    :default-checked="[0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12]"
+    cache-name="XX_XX_LIST_FIELDS">
+</table-columns-custom>
+```
+
+```vue
+import TableColumnsCustom from 'table-columns-custom-tool';
+
+...
+
+components: {
+    TableColumnsCustom
+},
+
 methods: {
 	getData () {
 		getRemoteData.then(res => {
@@ -35,3 +62,6 @@ methods: {
 	}
 }
 ```
+
+## 图示
+![](https://user-gold-cdn.xitu.io/2018/11/17/167209207001c70b?w=1209&h=638&f=gif&s=1623360)

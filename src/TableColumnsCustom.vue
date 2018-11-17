@@ -1,6 +1,8 @@
 <template>
-    <el-dialog title="自定义列" :visible="show" :show-close="false">
-        <label class="title"><a @click="onSetAll" href="javascript:;">全选 </a> | <a @click="onSetDefault" href="javascript:;"> 默认</a></label>
+    <el-dialog title="自定义列" :visible="show" :show-close="false" class="table-columns-custom-modal">
+        <label class="title">
+        	<a @click="onSetAll" href="javascript:;">全选 </a> | <a @click="onSetDefault" href="javascript:;"> 默认</a>
+        </label>
         <el-checkbox-group v-model="fields">
             <template v-if="renderByClass">
                 <el-checkbox v-for="item in allFields" :label="item.fieldName" :key="item.fieldName">{{item.text}}</el-checkbox>
@@ -164,20 +166,24 @@ export default {
 }
 </script>
 
-<style>
-	.title {
-        display: inline-block;
-        margin-bottom: 10px;
-    }
-    .title a {
-		text-decoration: none;
-    }
-    .el-checkbox+.el-checkbox {
-        margin-left: 0;
-    }
-    .el-checkbox {
-        margin-left: 0;
-        min-width: 120px;
-        white-space: nowrap;
-    }
+<style lang="less">
+	.table-columns-custom-modal {
+		.title {
+	        display: inline-block;
+	        margin-bottom: 10px;
+	        
+	        a {
+	        	color: #409EFF;
+				text-decoration: none;
+	        }
+	    }
+	    .el-checkbox+.el-checkbox {
+	        margin-left: 0;
+	    }
+	    .el-checkbox {
+	        margin-left: 0;
+	        min-width: 120px;
+	        white-space: nowrap;
+	    }
+	}
 </style>

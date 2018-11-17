@@ -1,6 +1,6 @@
 {
   "name": "table-columns-custom-tool",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a modal tool of cutstoming table columns",
   "main": "./dist/table-columns-custom.min.js",
   "scripts": {

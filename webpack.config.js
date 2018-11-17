@@ -42,6 +42,12 @@ module.exports = {
 		    },
 
 		    {
+            	test: /\.less$/,
+            	loader: "style-loader!css-loader!less-loader",
+          	},
+
+
+		    {
 		        test: /\.js$/,
 		        loader: 'babel-loader',
 		        include: [path.resolve(__dirname, './src')]
@@ -51,19 +57,6 @@ module.exports = {
 
 	plugins: [
 		new uglify(),
-
-		// new htmlPlugin({
-  //           //是对html文件进行压缩
-  //           minify: {
-  //               removeAttributeQuotes: true  //removeAttrubuteQuotes是却掉属性的双引号。
-  //           },
-
-  //           hash: true, //为了开发中js有缓存效果，所以加入hash，这样可以有效避免缓存JS。
-            
-  //           template:'./src/index.html' //是要打包的html模版路径和文件名称。
-           
-  //       }),
-
 		// vue-loader插件
         new VueLoaderPlugin()
 	],
